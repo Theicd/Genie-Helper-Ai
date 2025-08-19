@@ -163,8 +163,9 @@
             display: flex;
             flex-direction: column;
             min-height: 280px;
-            max-height: 380px;
-            overflow: hidden;
+            /* [Genie] חשוב: הסרת מגבלת הגובה למניעת חיתוך תמונות/וידאו במדיה המוזרקת */
+            max-height: none;
+            overflow: visible;
         }
 
         .glass-card:hover {

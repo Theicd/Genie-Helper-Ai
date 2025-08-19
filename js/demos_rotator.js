@@ -115,11 +115,13 @@
               <h3 class="card-title">תמונה לדוגמה (Pixabay)</h3>
               <p class="card-text">תצוגה חיה של תמונה לדוגמה. להורדה/צפייה בקישור המקורי לחצו "פתח תמונה".</p>
               <div class="media-thumb" style="border-radius:12px;">
-                <img src="https://pixabay.com/get/g5de34bc84c25a09046cb03edf4f5f2ebd31f9904a3cddd53041a3d4223bb9ba3c82542d2d96f18a6afc0bc58779c652d570625378d9c1a90788e4975f3bc99fa_640.jpg" alt="תמונה לדוגמה מפיקסביי" style="width:100%; max-width:100%; height:auto; display:block; border-radius:12px;">
+                <!-- [Genie] עדכון קישור תמונה לדוגמה לפי בקשת המשתמש -->
+                <img src="https://pixabay.com/get/g9f3e6d3fccf45e3ea545324811b620cbf1510718e544c646da06cf4f491258dda6ec859e133530f032e12d2aaa2a3e0c_640.jpg" alt="תמונה לדוגמה מפיקסביי" style="width:100%; max-width:100%; height:auto; display:block; border-radius:12px;">
               </div>
               <p class="card-text" style="margin-top:8px;">מקור: Pixabay. שימוש כפוף לרישוי Pixabay.</p>
               <div class="card-actions">
-                <a href="https://pixabay.com/get/g5de34bc84c25a09046cb03edf4f5f2ebd31f9904a3cddd53041a3d4223bb9ba3c82542d2d96f18a6afc0bc58779c652d570625378d9c1a90788e4975f3bc99fa_640.jpg" target="_blank" rel="noopener" class="btn-holo">פתח תמונה</a>
+                <!-- [Genie] עדכון קישור כפתור "פתח תמונה" לאותה הכתובת החדשה -->
+                <a href="https://pixabay.com/get/g9f3e6d3fccf45e3ea545324811b620cbf1510718e544c646da06cf4f491258dda6ec859e133530f032e12d2aaa2a3e0c_640.jpg" target="_blank" rel="noopener" class="btn-holo">פתח תמונה</a>
               </div>
             </div>
             <div class="glass-card">

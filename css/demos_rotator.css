@@ -8,3 +8,24 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+/* [Genie] ייצוב גדלי מדיה במקטע מאגר המדיה כדי שתמונה ווידאו יהיו זהים בגודל */
+#media-library-previews .media-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* מסגרת אחידה לכל המדיה */
+  overflow: hidden;
+  border-radius: 12px;
+  background: #000;
+}
+
+#media-library-previews .media-thumb img,
+#media-library-previews .media-thumb video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100% !important; /* גובר על height:auto inline */
+  object-fit: cover; /* ממלא את המסגרת באחידות */
+  display: block;
+  border-radius: 12px;
+}
