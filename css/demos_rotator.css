@@ -1,0 +1,10 @@
+/* Fade-in up animation for rotating demos */
+#demos .demo-card {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 350ms ease, transform 350ms ease;
+}
+#demos .demo-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

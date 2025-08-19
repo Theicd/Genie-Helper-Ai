@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Genie WhatsApp Demo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="whatsapp_styles_floating.css">
+</head>
+<body>
+    <div class="phone-frame">
+        <div class="whatsapp-screen">
+            <div class="chat-header">
+                <img src="https://i.ibb.co/7jRzZgY/genie-logo-concept.png" alt="@Genie Logo" class="avatar">
+                <div class="chat-title">
+                    <h3>משפחה וילדים</h3>
+                    <p>אמא, אבא, @Genie</p>
+                </div>
+            </div>
+            <div class="chat-background">
+                <div class="chat-messages" id="chat-messages-container">
+                    <!-- Messages will be injected here by JavaScript -->
+                </div>
+            </div>
+            <div class="chat-input-bar">
+                <input type="text" placeholder="הקלד/י הודעה">
+                <button class="send-btn">
+                    <svg viewBox="0 0 24 24" width="24" height="24" class="" fill="#fff"><path d="M1.101 21.757L23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z"></path></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const conversation = [
+            {
+                author: 'אמא',
+                type: 'received',
+                text: 'מישהו זוכר איך פותרים את משפט פיתגורס? דני צריך עזרה דחוף',
+                time: '18:01'
+            },
+            {
+                author: 'אבא',
+                type: 'received',
+                text: 'אין לי מושג...',
+                time: '18:02'
+            },
+            {
+                author: 'אני',
+                type: 'sent',
+                text: '@Genie, מה זה משפט פיתגורס ואיך משתמשים בו?',
+                time: '18:03'
+            },
+            {
+                author: '@Genie',
+                type: 'genie',
+                text: 'בוודאי! משפט פיתגורס קובע שבמשולש ישר זווית, סכום ריבועי הצלעות הקצרות (ניצבים) שווה לריבוע הצלע הארוכה (יתר), כלומר a²+b²=c². למשל, אם צלע אחת היא 3 ס"מ והשנייה 4 ס"מ, הצלע הארוכה תהיה 5 ס"מ. רוצים דוגמה נוספת?',
+                time: '18:03'
+            }
+        ];
+
+        function animateConversation() {
+            const container = document.getElementById('chat-messages-container');
+            container.innerHTML = ''; // Clear existing messages
+            let delay = 800; // Delay between messages in ms
+
+            conversation.forEach((msg, index) => {
+                setTimeout(() => {
+                    let messageClass = 'message';
+                    if (msg.type === 'sent') {
+                        messageClass += ' sent';
+                    } else {
+                        messageClass += ' received';
+                    }
+                    if (msg.type === 'genie') {
+                        messageClass += ' genie';
+                    }
+
+                    const messageElement = document.createElement('div');
+                    messageElement.className = messageClass;
+
+                    messageElement.innerHTML = `
+                        ${msg.type !== 'sent' ? `<div class="author">${msg.author}</div>` : ''}
+                        <p>${msg.text}</p>
+                        <div class="timestamp">${msg.time}</div>
+                    `;
+                    
+                    container.appendChild(messageElement);
+
+                    // Trigger the animation by adding the 'visible' class after a short delay
+                    setTimeout(() => {
+                        messageElement.classList.add('visible');
+                        container.scrollTop = container.scrollHeight; // Auto-scroll to the bottom
+                    }, 50);
+
+                }, delay * index);
+            });
+        }
+
+        window.onload = animateConversation;
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+/* Modal (Popup) for demos */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal.open { display: flex; }
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient( circle at 30% 20%, rgba(0,247,255,0.08), transparent 50% ),
+              rgba(12, 12, 29, 0.88);
+  backdrop-filter: blur(6px);
+}
+.modal-dialog {
+  position: relative;
+  background: rgba(18, 24, 57, 0.35);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6), 0 0 25px rgba(0, 247, 255, 0.15);
+  width: min(92vw, 400px);
+  height: min(88vh, 840px);
+  max-width: calc(100vw - 40px);
+  max-height: calc(100vh - 40px);
+  overflow: hidden;
+  transform: translateY(30px); /* lower the dialog to avoid top menu */
+}
+.modal-close {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid var(--border-color);
+  color: #e0e0e0;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+  z-index: 2;
+}
+.modal-iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent; /* rely on demo transparency */
+}
+
+/* Make demo cards clickable for popup */
+.demo-card { cursor: pointer; position: relative; }
+.demo-card::after {
+  content: none;
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  background: rgba(0,0,0,0.25);
+}

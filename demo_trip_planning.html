@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Genie Demo - תכנון טיול</title>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="whatsapp_styles_floating.css">
+</head>
+<body>
+    <div class="phone-frame">
+        <div class="whatsapp-screen">
+            <div class="chat-header">
+                <img src="https://i.ibb.co/7jRzZgY/genie-logo-concept.png" alt="@Genie Logo" class="avatar">
+                <div class="chat-title">
+                    <h3>סופ"ש בצפון 🏕️</h3>
+                    <p>אני, נועה, איתי, @Genie</p>
+                </div>
+            </div>
+            <div class="chat-background">
+                <div class="chat-messages" id="chat-messages-container">
+                    <!-- Messages will be injected here by JavaScript -->
+                </div>
+            </div>
+            <div class="chat-input-bar">
+                <input type="text" placeholder="הקלד/י הודעה">
+                <button class="send-btn">
+                    <svg viewBox="0 0 24 24" width="24" height="24" class="" fill="#fff"><path d="M1.101 21.757L23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z"></path></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const conversation = [
+            {
+                author: 'נועה',
+                type: 'received',
+                text: 'אני רוצה לעשות מסלול הליכה בבוקר!',
+                time: '20:10'
+            },
+            {
+                author: 'איתי',
+                type: 'received',
+                text: 'ואני רוצה שנמצא מסעדה טובה לארוחת ערב, לא בא לי לבשל.',
+                time: '20:11'
+            },
+            {
+                author: 'אני',
+                type: 'sent',
+                text: 'הכל מתבלגן לי. @Genie, תכין בבקשה לו"ז לסופ"ש בצפון שכולל מסלול הליכה בשבת בבוקר ומסעדה מומלצת לערב.',
+                time: '20:13'
+            },
+            {
+                author: '@Genie',
+                type: 'genie',
+                text: 'בטח, הנה הצעה ללו"ז:\n*שבת:*\n- *9:00:* תחילת מסלול בנחל עמוד.\n- *13:00:* ארוחת צהריים ופיקניק.\n- *20:00:* ארוחת ערב במסעדת "מגדלנה" בצומת מגדל.\n*ראשון:*\n- *10:00:* שייט קיאקים בירדן.\n- *14:00:* חזרה הביתה.',
+                time: '20:14'
+            }
+        ];
+
+        function animateConversation() {
+            const container = document.getElementById('chat-messages-container');
+            container.innerHTML = '';
+            let delay = 800;
+
+            conversation.forEach((msg, index) => {
+                setTimeout(() => {
+                    let messageClass = 'message';
+                    if (msg.type === 'sent') messageClass += ' sent';
+                    else messageClass += ' received';
+                    if (msg.type === 'genie') messageClass += ' genie';
+
+                    const messageElement = document.createElement('div');
+                    messageElement.className = messageClass;
+                    messageElement.innerHTML = `${msg.type !== 'sent' ? `<div class="author">${msg.author}</div>` : ''}<p>${msg.text.replace(/\n/g, '<br>')}</p><div class="timestamp">${msg.time}</div>`;
+                    
+                    container.appendChild(messageElement);
+
+                    setTimeout(() => {
+                        messageElement.classList.add('visible');
+                        container.scrollTop = container.scrollHeight;
+                    }, 50);
+                }, delay * index);
+            });
+        }
+
+        window.onload = animateConversation;
+    </script>
+</body>
+</html>

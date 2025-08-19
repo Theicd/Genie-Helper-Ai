@@ -9,19 +9,16 @@ body {
 }
 
 .phone-frame {
-    width: 355px;
-    height: 792px;
-    /* The phone frame is kept, but its own background is removed to prevent any solid color block */
-    background-color: transparent; 
-    border: 12px solid #111b21;
+    width: 375px;
+    height: 812px;
+    background-color: #111b21;
     border-radius: 40px;
-    padding: 6px;
+    padding: 18px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    box-sizing: border-box;
 }
 
 .whatsapp-screen {
-    background-color: transparent; /* Key change for floating effect */
+    background-color: #e5ddd5;
     height: 100%;
     border-radius: 22px;
     display: flex;
@@ -30,7 +27,7 @@ body {
 }
 
 .chat-header {
-    background-color: #111b21; /* Dark background for header */
+    background-color: #008069;
     color: white;
     padding: 10px 15px;
     display: flex;
@@ -59,8 +56,8 @@ body {
 
 .chat-background {
     flex-grow: 1;
-    background-image: none; /* Key change for floating effect */
-    background-color: transparent; /* Key change for floating effect */
+    background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+    background-repeat: repeat;
     padding: 10px;
     overflow-y: auto;
 }
@@ -73,11 +70,10 @@ body {
 .message {
     max-width: 75%;
     padding: 8px 12px;
-    border-radius: 12px;
+    border-radius: 8px;
     margin-bottom: 10px;
     line-height: 1.4;
     position: relative;
-    color: #e0e0e0; /* Light text color for dark mode */
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.4s ease-out, transform 0.4s ease-out;
@@ -89,30 +85,22 @@ body {
 }
 
 .message.sent {
-    background-color: #005C4B; /* WhatsApp dark mode sent green */
+    background-color: #dcf8c6;
     align-self: flex-end;
-    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
 }
 
 .message.received {
-    background-color: #202C33; /* WhatsApp dark mode received grey */
+    background-color: #ffffff;
     align-self: flex-start;
-    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
 }
 
 .message .author {
     font-size: 13px;
     font-weight: 700;
     margin-bottom: 4px;
-    color: #005c4b; /* Darker Green for author */
-}
-
-.message.yael .author {
-    color: #ff7e33; /* Orange for יעל */
-}
-
-.message.mor .author {
-    color: #039be5; /* Blue for מור */
+    color: #008069; /* Default color */
 }
 
 .message.genie .author {
@@ -126,7 +114,7 @@ body {
 
 .message .timestamp {
     font-size: 11px;
-    color: rgba(255, 255, 255, 0.6);
+    color: #667781;
     float: right;
     margin-top: 5px;
     margin-left: 8px;
@@ -135,7 +123,7 @@ body {
 .chat-input-bar {
     display: flex;
     padding: 8px 12px;
-    background-color: #111b21; /* Dark background for input bar */
+    background-color: #f0f2f5;
     align-items: center;
 }
 
@@ -144,8 +132,6 @@ body {
     border: none;
     padding: 10px 15px;
     border-radius: 20px;
-    background-color: #202C33; /* Dark input field */
-    color: #e0e0e0; /* Light text for input */
     font-family: 'Assistant', sans-serif;
     font-size: 15px;
 }

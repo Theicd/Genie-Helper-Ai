@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Genie Demo - עזרה בכתיבת קוד</title>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="whatsapp_styles_floating.css">
+    <style>
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: left;
+            direction: ltr;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-frame">
+        <div class="whatsapp-screen">
+            <div class="chat-header">
+                <img src="https://i.ibb.co/7jRzZgY/genie-logo-concept.png" alt="@Genie Logo" class="avatar">
+                <div class="chat-title">
+                    <h3>צוות פיתוח</h3>
+                    <p>אני, גיא, @Genie</p>
+                </div>
+            </div>
+            <div class="chat-background">
+                <div class="chat-messages" id="chat-messages-container">
+                    <!-- Messages will be injected here by JavaScript -->
+                </div>
+            </div>
+            <div class="chat-input-bar">
+                <input type="text" placeholder="הקלד/י הודעה">
+                <button class="send-btn">
+                    <svg viewBox="0 0 24 24" width="24" height="24" class="" fill="#fff"><path d="M1.101 21.757L23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z"></path></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const conversation = [
+            {
+                author: 'גיא',
+                type: 'received',
+                text: 'למה הלולאה הזו לא עובדת בפייתון? <br><div class=\"code-block\">numbers = [1, 2, 3]\nfor i in numbers\n    print(i)</div>',
+                time: '11:50'
+            },
+            {
+                author: 'אני',
+                type: 'sent',
+                text: '@Genie, מה הבעיה בקוד של גיא?',
+                time: '11:51'
+            },
+            {
+                author: '@Genie',
+                type: 'genie',
+                text: 'הבעיה היא הזחה (indentation) חסרה. בפייתון, גוף הלולאה חייב להיות מוזח. הנה הקוד המתוקן:\n<div class=\"code-block\">numbers = [1, 2, 3]\nfor i in numbers:\n    print(i)</div>שימו לב גם לנקודתיים (:) בסוף שורת ה-for.',
+                time: '11:52'
+            }
+        ];
+
+        function animateConversation() {
+            const container = document.getElementById('chat-messages-container');
+            container.innerHTML = '';
+            let delay = 800;
+
+            conversation.forEach((msg, index) => {
+                setTimeout(() => {
+                    let messageClass = 'message';
+                    if (msg.type === 'sent') messageClass += ' sent';
+                    else messageClass += ' received';
+                    if (msg.type === 'genie') messageClass += ' genie';
+
+                    const messageElement = document.createElement('div');
+                    messageElement.className = messageClass;
+                    messageElement.innerHTML = `${msg.type !== 'sent' ? `<div class="author">${msg.author}</div>` : ''}<p>${msg.text.replace(/\n/g, '<br>')}</p><div class="timestamp">${msg.time}</div>`;
+                    
+                    container.appendChild(messageElement);
+
+                    setTimeout(() => {
+                        messageElement.classList.add('visible');
+                        container.scrollTop = container.scrollHeight;
+                    }, 50);
+                }, delay * index);
+            });
+        }
+
+        window.onload = animateConversation;
+    </script>
+</body>
+</html>

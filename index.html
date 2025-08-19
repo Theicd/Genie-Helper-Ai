@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/demo_modal.css">
+    <link rel="stylesheet" href="css/demos_rotator.css">
     
     <style>
         :root {
@@ -89,6 +91,10 @@
         }
         
         .btn-large { padding: 15px 30px; font-size: 1.2rem; }
+        .btn-small { padding: 8px 14px; font-size: 0.9rem; }
+        .card-actions { margin-top: 14px; }
+
+        /* סגנונות המודל לדמואים הועברו ל-css/demo_modal.css */
 
         main { z-index: 1; position: relative; }
 
@@ -222,7 +228,7 @@
             border: none;
             box-shadow: none;
             padding: 0;
-            height: 820px; /* Adjust height for phone frame */
+            height: 800px; /* Adjust height for phone frame */
         }
 
         .cta-section {
@@ -288,7 +294,6 @@
             .hero-subtitle { font-size: 1.2rem; }
             .section { padding: 60px 20px; }
             .section-title { font-size: 2rem; }
-            .background-at-symbol { font-size: 100vw; } /* Adjust size for mobile */
         }
 
     </style>
@@ -303,6 +308,7 @@
             <a href="#features">יכולות</a>
             <a href="#power-core">ליבת הכוח</a>
             <a href="#demos">הדגמות</a>
+            <a href="#cta" class="btn-holo">הזמן עכשיו</a>
         </nav>
     </header>
 
@@ -322,21 +328,33 @@
                     <div class="card-icon">🎓</div>
                     <h3 class="card-title">מורה פרטי צמוד</h3>
                     <p class="card-text">תקועים עם שיעורי בית? צריכים להבין נושא מורכב? תייגו את @Genie וקבלו הסבר מפורט ומדויק, בכל נושא ובכל זמן.</p>
+                    <div class="card-actions">
+                        <a href="demo_homework_helper.html" class="btn-holo btn-small" target="_blank" rel="noopener">הדגמה</a>
+                    </div>
                 </div>
                 <div class="glass-card">
                     <div class="card-icon">💡</div>
                     <h3 class="card-title">מאיץ יצירתיות קבוצתי</h3>
                     <p class="card-text">מתכננים טיול? צריכים רעיונות לפרויקט? @Genie מצטרף לסיעור המוחות הקבוצתי ומציע רעיונות מקוריים שכולם יכולים לראות ולפתח.</p>
+                    <div class="card-actions">
+                        <a href="demo_trip_planning.html" class="btn-holo btn-small" target="_blank" rel="noopener">הדגמה</a>
+                    </div>
                 </div>
                 <div class="glass-card">
                     <div class="card-icon">💻</div>
                     <h3 class="card-title">שותף לפתרון בעיות</h3>
                     <p class="card-text">נתקלתם בבעיה טכנית? צריכים לכתוב קוד או לנסח מייל? @Genie מספק פתרונות וניסוחים מדויקים ישירות בחלון הצ'אט.</p>
+                    <div class="card-actions">
+                        <a href="demo_code_helper.html" class="btn-holo btn-small" target="_blank" rel="noopener">הדגמה</a>
+                    </div>
                 </div>
                 <div class="glass-card">
-                    <div class="card-icon">[אייקון יצירתיות]</div>
+                    <div class="card-icon">🎨</div>
                     <h3 class="card-title">מאיץ היצירתיות</h3>
                     <p class="card-text">שותף לסיעור מוחות, כתיבת תוכן, ניסוח מיילים ויצירת רעיונות מקוריים.</p>
+                    <div class="card-actions">
+                        <a href="demo_floating_brainstorm.html" class="btn-holo btn-small" target="_blank" rel="noopener">הדגמה</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -386,12 +404,12 @@
                 <div class="glass-card">
                     <div class="card-icon">💻</div>
                     <h3 class="card-title">הכוח בידיים שלך</h3>
-                    <p class="card-text">הפרטיות שלך, החומרה שלך. @Genie רץ במלואו על המחשב האישי שלך, תוך ניצול כרטיסי מסך עדכניים של NVIDIA או Radeon. המשמעות: המידע שלך לא עוזב את המחשב לעולם, התגובות מיידיות, ואין תלות בחיבור לאינטרנט או בשרתים חיצוניים.</p>
+                    <p class="card-text">@Genie הופך כל שיחה לחכמה יותר — מתחבר לשירותי Google ועובד מיד, בלי כאב ראש. פרטי השיחה נשמרים מאובטחים, ואתה מקבל תגובות חדות, מהירות ובטוחות — בכל רגע ומכל מקום.</p>
                 </div>
                 <div class="glass-card">
                     <div class="card-icon">🧠</div>
                     <h3 class="card-title">מנוע AI מבית Google</h3>
-                    <p class="card-text">מצויד במודל הבינה המלאכותית GAMMA3N מבית Google. מנוע פורץ דרך זה תוכנן לפתרון בעיות יצירתי ויעילות מדהימה. הוא כל כך קל משקל שהוא מסוגל לרוץ על מגוון רחב של מחשבים, אך משחרר את מלוא הפוטנציאל שלו כשהוא רותם את העוצמה של כרטיס המסך שלך.</p>
+                    <p class="card-text">@Genie עושה שימוש במנועי בינה מתקדמים מבית Google לפתרון בעיות יצירתי ותשובות איכותיות. בלי הגדרות מורכבות — רק לבחור, לשאול ולקבל תוצאה שמרגישה בול.</p>
                 </div>
             </div>
         </section>
@@ -401,10 +419,28 @@
             <h2 class="section-title">הדגמה חיה</h2>
             <div class="demo-grid">
                 <div class="demo-card floating">
-                    <iframe src="demo_floating_brainstorm.html" title="הדגמת סיעור מוחות צף"></iframe>
+                    <iframe src="demo_homework_helper.html" title="הדגמת מורה פרטי"></iframe>
+                </div>
+                <div class="demo-card floating">
+                    <iframe src="demo_trip_planning.html" title="הדגמת תכנון טיול"></iframe>
+                </div>
+                <div class="demo-card floating">
+                    <iframe src="demo_code_helper.html" title="הדגמת פתרון בעיות וקוד"></iframe>
+                </div>
+                <div class="demo-card floating">
+                    <iframe src="demo_floating_brainstorm.html" title="הדגמת מאיץ היצירתיות"></iframe>
                 </div>
             </div>
         </section>
+
+        <!-- Demo Modal -->
+        <div id="demo-modal" class="modal" aria-hidden="true" role="dialog">
+            <div class="modal-backdrop" data-close="true"></div>
+            <div class="modal-dialog" aria-modal="true">
+                <button class="modal-close" type="button" data-close="true">סגור ✕</button>
+                <iframe id="demo-iframe" class="modal-iframe" src="about:blank" title="Demo"></iframe>
+            </div>
+        </div>
 
         <section id="cta" class="section cta-section">
             <h2 class="section-title">מוכן למסע?</h2>
@@ -468,7 +504,11 @@
                 setCanvasSize();
                 initStars();
             });
+
+            // לוגיקת המודל הועברה ל-js/demo_modal.js
         });
     </script>
+    <script src="js/demo_modal.js" defer></script>
+    <script src="js/demos_rotator.js" defer></script>
 </body>
 </html>

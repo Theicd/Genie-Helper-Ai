@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+/* סגנונות בסיסיים */
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #000;
+    font-family: 'Orbitron', sans-serif;
+    color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#promo-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* אפקטים של מסך ישן */
+#promo-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+    z-index: 5;
+    pointer-events: none;
+}
+
+#scanlines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0) 0,
+        rgba(0, 0, 0, 0.3) 1px,
+        rgba(0, 0, 0, 0) 2px
+    );
+    z-index: 6;
+    pointer-events: none;
+    animation: scanline-animation 10s linear infinite;
+}
+
+@keyframes scanline-animation {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100px; }
+}
+
+#header, #footer {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    z-index: 20;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#header {
+    top: 20%;
+}
+
+#footer {
+    bottom: 20%;
+}
+
+#main-title {
+    font-size: 5rem;
+    font-weight: 700;
+    color: #00ffff;
+    text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
+    letter-spacing: 5px;
+}
+
+#sub-title {
+    font-size: 1.5rem;
+    color: #e0e0e0;
+    text-shadow: 0 0 5px #ffffff;
+}
+
+#message-container {
+    position: relative;
+    width: 80%;
+    max-width: 900px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+#message {
+    padding: 20px;
+    text-align: right;
+    font-size: 2rem;
+    line-height: 1.6;
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+.question { 
+    color: #4fc3f7;
+    text-shadow: 0 0 8px #4fc3f7, 0 0 12px #4fc3f7;
+}
+
+.answer { 
+    color: #ff5555;
+    text-shadow: 0 0 8px #ff4040, 0 0 12px #ff4040;
+}
+
+/* אפקט רקע */
+#matrix-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.4;
+}
+
+.glitch {
+    position: relative;
+    animation: glitch-animation 0.3s linear;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    overflow: hidden;
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 red;
+    animation: glitch-before 1.5s linear infinite reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 blue;
+    animation: glitch-after 1.5s linear infinite reverse;
+}
+
+@keyframes glitch-before {
+    0% { clip-path: inset(10% 0 80% 0); }
+    20% { clip-path: inset(50% 0 30% 0); }
+    40% { clip-path: inset(20% 0 70% 0); }
+    60% { clip-path: inset(90% 0 5% 0); }
+    80% { clip-path: inset(40% 0 45% 0); }
+    100% { clip-path: inset(70% 0 10% 0); }
+}
+
+@keyframes glitch-after {
+    0% { clip-path: inset(85% 0 5% 0); }
+    20% { clip-path: inset(25% 0 70% 0); }
+    40% { clip-path: inset(60% 0 30% 0); }
+    60% { clip-path: inset(10% 0 85% 0); }
+    80% { clip-path: inset(55% 0 20% 0); }
+    100% { clip-path: inset(30% 0 65% 0); }
+}
+
+/* Mobile styles - larger text */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+  
+  #chat-container {
+    width: 98%;
+    padding: 10px;
+  }
+  
+  .message {
+    font-size: 22px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+  }
+  
+  #main-title {
+    font-size: 28px;
+  }
+  
+  #sub-title {
+    font-size: 20px;
+  }
+}
+
+/* Mobile styles - forced larger text */
+@media (max-width: 768px) {
+  .message {
+    font-size: 24px !important;
+    line-height: 2 !important;
+  }
+  
+  #main-title {
+    font-size: 32px !important;
+  }
+  
+  #sub-title {
+    font-size: 24px !important;
+  }
+}
+
+/* רספונסיביות */
+@media (max-width: 768px) {
+    #main-title {
+        font-size: 3rem;
+    }
+
+    #sub-title {
+        font-size: 1.2rem;
+    }
+
+    #message-container {
+        width: 90%;
+    }
+
+    #message {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #main-title {
+        font-size: 2.2rem;
+    }
+
+    #sub-title {
+        font-size: 1rem;
+    }
+
+    #message {
+        font-size: 1.2rem;
+        padding: 10px;
+    }
+}
